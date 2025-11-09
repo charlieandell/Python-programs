@@ -36,7 +36,7 @@ else:
     print(f"Using all available data from {sp500.index.min()}, shape: {sp500.shape}")
 
 # Add technical indicators
-horizons = [3,7,90,350,1000]
+horizons = [3,7,90,350,1300]
 new_predictors = []
 
 for horizon in horizons:
@@ -195,6 +195,7 @@ def predict_tomorrow_only(model, data, predictors):
 print(f"\n--- Model Verification ---")
 print(f"Model trained with {len(new_predictors)} features")
 tomorrow_pred = predict_tomorrow_only(model, sp500, new_predictors)
+
 
 
 
