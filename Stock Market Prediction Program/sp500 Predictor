@@ -95,7 +95,7 @@ predictions = backtest(sp500, model, new_predictors)
 # Calculate metrics
 accuracy = accuracy_score(predictions["Target"], predictions["Price_Prediction"])
 
-# NEW: Calculate accuracy for BUY recommendations
+# Calculate accuracy for BUY recommendations
 buy_predictions = predictions[predictions["Trading_Recommendation"] == "BUY"]
 if len(buy_predictions) > 0:
     buy_accuracy = accuracy_score(buy_predictions["Target"], buy_predictions["Price_Prediction"])
@@ -104,7 +104,7 @@ else:
     buy_accuracy = 0
     buy_count = 0
 
-# NEW: Calculate accuracy for SELL recommendations
+# Calculate accuracy for SELL recommendations
 sell_predictions = predictions[predictions["Trading_Recommendation"] == "SELL"]
 if len(sell_predictions) > 0:
     # For SELL recommendations, we want the price to actually go DOWN (Target = 0)
@@ -114,7 +114,7 @@ else:
     sell_accuracy = 0
     sell_count = 0
 
-# NEW: Calculate accuracy for HOLD recommendations (for completeness)
+# Calculate accuracy for HOLD recommendations (for completeness)
 hold_predictions = predictions[predictions["Trading_Recommendation"] == "HOLD"]
 if len(hold_predictions) > 0:
     hold_count = len(hold_predictions)
@@ -195,6 +195,7 @@ def predict_tomorrow_only(model, data, predictors):
 print(f"\n--- Model Verification ---")
 print(f"Model trained with {len(new_predictors)} features")
 tomorrow_pred = predict_tomorrow_only(model, sp500, new_predictors)
+
 
 
 
